@@ -1,78 +1,84 @@
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: #fff;
   padding: 0 20px;
 
-  /* Gradient background */
-  background: linear-gradient(135deg, #6d28d9, #ff6ec7, #ffb347);
-  color: #fff;
+  /* Background image with overlay */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url("../Assats/Hero.png") no-repeat center center/cover;
+
+  perspective: 1000px; /* for 3D effect */
   position: relative;
   overflow: hidden;
 }
 
-/* Welcome text */
-.hero .welcome {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  animation: fadeInDown 1.2s ease-in-out;
-  color: #ffe6f2;
+/* Hero Content */
+.hero-content {
+  max-width: 900px;
+  transform: translateZ(50px); /* pop-out 3D effect */
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Main headline */
+.welcome {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #ffb347;
+  animation: slideDown 1.2s ease-in-out;
+}
+
 .hero h1 {
   font-size: 3rem;
-  font-weight: 700;
   margin-bottom: 20px;
-  max-width: 900px;
-  animation: fadeInUp 1.5s ease-in-out;
+  font-weight: 700;
+  animation: slideUp 1.4s ease-in-out;
 }
 
-/* Subheadline */
 .hero p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 30px;
-  max-width: 700px;
-  line-height: 1.6;
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeInUp 1.6s ease-in-out;
 }
 
-/* Button styling */
 .hero .btn {
   background: #fff;
   color: #6d28d9;
-  padding: 12px 28px;
+  padding: 12px 25px;
   border-radius: 30px;
-  font-weight: bold;
   text-decoration: none;
+  font-weight: bold;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .hero .btn:hover {
   background: #ff6ec7;
   color: #fff;
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 110, 199, 0.6);
+  box-shadow: 0 6px 20px rgba(255, 110, 199, 0.5);
 }
 
 /* Animations */
-@keyframes fadeInDown {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateZ(0); }
+  to { opacity: 1; transform: translateZ(50px); }
+}
+
+@keyframes slideDown {
   from { opacity: 0; transform: translateY(-40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInUp {
+@keyframes slideUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }

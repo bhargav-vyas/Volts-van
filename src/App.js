@@ -15,11 +15,10 @@ function App() {
    <div>
     <Header/>
       <Hero/>
+         <NextPage/>
       <Services/>
       <About/>
-         <NextPage/>
       <Contact/>
-     
       <Footer/>
     
       
