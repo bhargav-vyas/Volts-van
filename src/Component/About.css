@@ -1,0 +1,78 @@
+.about {
+  padding: 100px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #6d28d9, #ff6ec7, #ffb347);
+  color: #fff;
+  border-top: 4px solid #ff6ec7;
+  border-bottom: 4px solid #ffb347;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #ffe6f2;
+  animation: slideDown 1s ease-in-out;
+}
+
+.about p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.about-list li {
+  font-size: 1.15rem;
+  margin: 12px 0;
+  font-weight: 500;
+  color: #fff5f7;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 110, 199, 0.5);
+}
+
+.about-list li::before {
+  content: "✔ ";
+  color: #ffb347;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

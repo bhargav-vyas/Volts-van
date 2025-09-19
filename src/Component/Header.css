@@ -1,0 +1,164 @@
+/* ===== Header Base ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #6d28d9, #ff6ec7, #ffb347);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Nav Links (Desktop) ===== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 8px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #fff;
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.nav-links a:hover {
+  color: #ffe6f2;
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-links a.active {
+  color: #ffe6f2;
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ===== Button ===== */
+.btn {
+  background: #fff;
+  color: #6d28d9;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background: #ff6ec7;
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(255, 110, 199, 0.6);
+  transform: scale(1.05);
+}
+
+/* ===== Hamburger (Hidden on Desktop) ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1100; /* Stay above nav */
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* Animate into X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ===== Mobile View ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* show hamburger */
+  }
+
+  /* Hide desktop nav initially */
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+    border-radius: 0 0 12px 12px;
+    max-height: 0; /* collapsed */
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  /* When menu is open */
+  .nav-links.show {
+    max-height: 300px; /* enough to show items */
+    opacity: 1;
+  }
+
+  .nav-links a {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    display: none; /* hide desktop button */
+  }
+}
