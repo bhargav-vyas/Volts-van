@@ -1,0 +1,83 @@
+.services {
+  padding: 90px 20px;
+  background: linear-gradient(90deg, #0d1117, #1e2a47); /* dark theme */
+  text-align: center;
+  color: #fff;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  font-weight: 700;
+  color: #00bcd4; /* cyan heading */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Grid for staggered layout */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Card Styling */
+.card {
+  background: rgba(255, 255, 255, 0.06); /* subtle glass */
+  border-radius: 16px;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s, box-shadow 0.4s;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+/* Glow hover effect */
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 14px 40px rgba(0, 188, 212, 0.6); /* cyan glow */
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  color: #00bcd4; /* cyan */
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Staggered layout positioning */
+.card:nth-child(1) {
+  grid-column: span 2;
+  justify-self: center;
+}
+.card:nth-child(2) { grid-column: 1; }
+.card:nth-child(3) { grid-column: 2; }
+.card:nth-child(4) {
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
